@@ -118,3 +118,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
 });
+const save = () => {
+    try {
+        let addressBookPerson = createAddressBookPerson();
+        saveToLocalStorage(addressBookPerson);
+    } catch (error) {
+        return;
+    }
+}
+function saveToLocalStorage(addressBook) {
+
+    let addressBookData = JSON.parse(localStorage.getItem("AddressBookData"));
+
+    if (addressBookData != undefined) {
+        addressBookData.push(addressBook);
+    } else {
+        addressBookData = [addressBook]
+    }
+
+    alert(addressBookData.toString());
+    localStorage.setItem("AddressBookData", JSON.stringify(addressBookData));
+
+}
+const createAddressBookPerson = () => {
+    let addressBook = new AddressBook();
+    addressBook._name = document.querySelector('#name').value;
+    addressBook._phoneNumber = document.querySelector('#phoneNumber').value;
+    addressBook._address = document.querySelector('#address').value;
+    addressBook._zipCode = document.querySelector('#zipCode').value;
+    addressBook._city = document.querySelector('#city').value;
+    addressBook._state = document.querySelector('#state').value;
+    alert(addressBook.toString());
+    return addressBook;
+}
