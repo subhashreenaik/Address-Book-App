@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address book App</title>
     <link rel="stylesheet" href="../css/Address_book_form.css">
+    <script src="../js/form.js"></script>
 </head>
 <body>
     <!-- UC1 : Addressbook logo-content -->
@@ -27,13 +28,13 @@
             <div class="row-content row-content-new">
       <!-- UC3  – Ability to add fulname ,address,city,state,zip,phone number and Button -->
                 <label for="name" class="label text"></label>
-                <input type="text" name="name" id="name" class="input" placeholder="Your Full Name" required>
+                <input type="text" name="name" id="name" class="input" placeholder="Your Full Name" required pattern="^[A-Z]{1}[a-z]{2,}( )[A-Z]{1}[a-z]{2,}$">
                 <error-output class="text-error"></error-output>
 
             </div> 
             <div class="row-content row-content-new">
                 <label class="label text" for="address"></label>
-                <textarea id="address" class="input" name="Address" placeholder="Address" style="height:104px" required></textarea>
+                <textarea id="address" class="input" name="Address" placeholder="Address" style="height:104px" required ></textarea>
                 <error-output class="address-error"></error-output>
             </div>
             <div class="city-state-zip-container">
